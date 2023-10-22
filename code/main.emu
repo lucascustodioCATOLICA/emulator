@@ -1,0 +1,6 @@
+MOV 20 X _
+MOV 40 Y _
+ADD X Y Z
+PRINT Z _ _
+SUB X Y Z
+PRINT Z _ _
