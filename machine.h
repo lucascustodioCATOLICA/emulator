@@ -3,7 +3,7 @@
 
 typedef struct Instruction
 {
-    char operation_code[5];
+    char operation_code[6];
     char slot_1[3];
     char slot_2[3];
     char slot_3[3];

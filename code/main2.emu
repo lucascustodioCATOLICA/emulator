@@ -1,0 +1,6 @@
+MOV 222222 X _
+MOV 220999 Y _
+ADD X Y Z
+PRINT X _ _
+PRINT Y _ _
+PRINT Z _ _

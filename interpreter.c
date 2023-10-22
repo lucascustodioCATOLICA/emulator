@@ -5,40 +5,40 @@
 
 int interpreter (Instruction *instruction, Machine *machine) {
     if(strcmp(instruction->operation_code, "MOV") == 0) {
-        if(strcmp(instruction->slot_1, "X") == 0) {
-            if(strcmp(instruction->slot_2, "Y") == 0) {
+        if(strcmp(instruction->slot_2, "X") == 0) {
+            if(strcmp(instruction->slot_1, "Y") == 0) {
                 machine->x = machine->y;
-            } else if(strcmp(instruction->slot_2, "Z") == 0) {
+            } else if(strcmp(instruction->slot_1, "Z") == 0) {
                 machine->x = machine->z;
             } else {
-                if(atoi(instruction->slot_2) != 0) {
-                    machine->x = atoi(instruction->slot_2);
+                if(atoi(instruction->slot_1) != 0) {
+                    machine->x = atoi(instruction->slot_1);
                 } else {
                     printf("ERROR (17): unable to convert to int \n");
                 }
             }
         }
-        if(strcmp(instruction->slot_1, "Y") == 0) {
-            if(strcmp(instruction->slot_2, "X") == 0) {
+        if(strcmp(instruction->slot_2, "Y") == 0) {
+            if(strcmp(instruction->slot_1, "X") == 0) {
                 machine->y = machine->x;
-            } else if(strcmp(instruction->slot_2, "Z") == 0) {
+            } else if(strcmp(instruction->slot_1, "Z") == 0) {
                 machine->y = machine->z;
             } else {
-                if(atoi(instruction->slot_2) != 0) {
-                    machine->y = atoi(instruction->slot_2);
+                if(atoi(instruction->slot_1) != 0) {
+                    machine->y = atoi(instruction->slot_1);
                 } else {
                     printf("ERROR (30): unable to convert to int \n");
                 }
             }
         }
-        if(strcmp(instruction->slot_1, "Z") == 0) {
-            if(strcmp(instruction->slot_2, "X") == 0) {
+        if(strcmp(instruction->slot_2, "Z") == 0) {
+            if(strcmp(instruction->slot_1, "X") == 0) {
                 machine->z = machine->x;
-            } else if(strcmp(instruction->slot_2, "Y") == 0) {
+            } else if(strcmp(instruction->slot_1, "Y") == 0) {
                 machine->z = machine->y;
             } else {
-                if(atoi(instruction->slot_2) != 0) {
-                    machine->z = atoi(instruction->slot_2);
+                if(atoi(instruction->slot_1) != 0) {
+                    machine->z = atoi(instruction->slot_1);
                 } else {
                     printf("ERROR (43): unable to convert to int \n");
                 }
@@ -134,12 +134,14 @@ int interpreter (Instruction *instruction, Machine *machine) {
         *target_register = result;
     } 
     if(strcmp(instruction->operation_code, "PRINT") == 0) {
-        if(strcmp(instruction->slot_2, "X") == 0) {
-            printf("%d", machine->x);
-        } else if(strcmp(instruction->slot_2, "Y") == 0) {
-            printf("%d", machine->y);
-        } else if(strcmp(instruction->slot_2, "Z") == 0) {
-            printf("%d", machine->z);
+        if(strcmp(instruction->slot_1, "X") == 0) {
+            printf("%d \n", machine->x);
+        } else if(strcmp(instruction->slot_1, "Y") == 0) {
+            printf("%d \n", machine->y);
+        } else if(strcmp(instruction->slot_1, "Z") == 0) {
+            printf("%d \n", machine->z);
+        } else {
+            printf("%s \n", instruction->slot_1);
         }
     } 
 
